@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/gophercises/urlshort"
+	"github.com/liikt/urlshort/handler"
 )
 
 func main() {
@@ -17,13 +17,13 @@ func main() {
 	mux := defaultMux()
 
 	if yaml, err := ioutil.ReadFile(*ymlpath); err == nil {
-		err = urlshort.YAMLHandler([]byte(yaml), mux)
+		err = handler.YAMLHandler([]byte(yaml), mux)
 		if err != nil {
 			panic(err)
 		}
 	}
 
-	err := urlshort.BoltHandler(*boltpath, mux)
+	err := handler.BoltHandler(*boltpath, mux)
 	if err != nil {
 		panic(err)
 	}
