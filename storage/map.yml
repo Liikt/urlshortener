@@ -1,3 +1,5 @@
 ---
   - path: /git
     url: https://github.com/Liikt
+  - path: /enopad
+    url: https://pad.enoflag.de
